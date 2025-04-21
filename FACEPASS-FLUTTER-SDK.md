@@ -147,7 +147,7 @@ void main() {
 | `cameraType`      | `FpCameraType`| Não         | Camera de início                  | front/back `default front`            |
 | `showFlashOption` | `bool`        | Não         | Habilita opção para que o usuário possa habilitar o flash. `"Só irá aparecer a opção quando for a câmera traseira"` | true/false `default true`|
 | `showFlipCameraOption`| `bool`    | Não         | Habilita opção para que o usuário possa trocar entre a câmera traseira ou dianteira | true/false `default false`|
-| `minFaceApproachPercent`| `double`| Não         | Distância mínima que o usuário deve estar do device  | Min: 10 Max: 80 `default 20`            |
+| `minFaceApproachPercent`| `double`| Não         | Distância mínima que o usuário deve estar do device  | Min: 10 Max: 80 `default 40`            |
 
 
 ## Como usar BACKEND
