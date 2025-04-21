@@ -104,7 +104,8 @@ void main() {
         await FacepassFlutterSdk.I.liveness(context);
     //Caso o result retorne null é por que o usuário somente abriu e fechou a tela
     // Codifique os próximos passos a partir daqui
-  
+    print("ValidationId: ${result?.validationId}"); // validationId será usado para a validação executada pelo back-end de domínio de você cliente. Será explicado mais a baixo.
+    print("Número de tentativas: ${result?.attempts}");
   } catch (e) {
     //Tratamento de failures
     /**
