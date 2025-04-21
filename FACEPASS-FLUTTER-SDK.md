@@ -84,7 +84,7 @@ dependencies:
 ```
 #### `TOKEN_FACEPASS deve ser solicitado para a equipe Facepass` (NÃO DEVE SER COMPARTILHADO)
 
-## Como usar
+## Como usar MOBILE
 ### Inicialização do SDK
 ```dart
 void main() {
@@ -105,7 +105,9 @@ void main() {
     //Caso o result retorne null é por que o usuário somente abriu e fechou a tela
     // Codifique os próximos passos a partir daqui
    
-   // validationId será usado para a validação executada pelo back-end de domínio de você cliente. Será explicado mais a baixo.
+   // validationId será usado para a validação executada
+   // pelo back-end de domínio de você cliente.
+   // Como fazer será explicado mais a baixo.
     print("ValidationId: ${result?.validationId}"); 
     print("Número de tentativas: ${result?.attempts}");
   } catch (e) {
@@ -144,4 +146,29 @@ void main() {
 | `showFlashOption` | `bool`        | Não         | Habilita opção para que o usuário possa habilitar o flash. `"Só irá aparecer a opção quando for a câmera traseira"` | true/false `default true`|
 | `showFlipCameraOption`| `bool`    | Não         | Habilita opção para que o usuário possa trocar entre a câmera traseira ou dianteira | true/false `default false`|
 | `minFaceApproachPercent`| `double`| Não         | Distância mínima que o usuário deve estar do device  | Min: 10 Max: 80 `default 20`            |
+
+
+## Como usar BACKEND
+Após a parte mobile concluir todas as etapas necessárias de validação, será retornado um objeto `UserValidationResponse` em caso de sucesso. Esse objeto conterá um atributo chamado `validationId`, que será utilizado para obter as informações referentes à validação facial realizada.
+
+Do lado do backend do domínio do cliente, será necessário realizar uma requisição ao serviço do **Facepass** para receber os dados previamente validados.
+
+### Exemplo de request
+```curl
+curl --request GET \
+  --url https://api.stable.guardian.k8s.facepassbrasil.com.br/v1/external/users/validate/8d9cd4a1-088a-40ce-bd01-ad0377c5bc74 \
+  --header 'User-Agent: insomnia/9.3.0' \
+  --header 'x-api-key: <APK_KEY_BACKEND_FACEPASS>'
+```
+
+### Exemplo de response
+```json
+{
+    "externalId": "<ID_EXTERNO_DO_CLIENTE>",
+    "name": "<NOME_DO_CLIENTE>",
+    "documentValue": "<CPF_DO_CLIENTE>",
+    "success": true, /*Quando true a validação ocorreu com sucesso. Sempre valide se está true.*/
+    "errorMsg": null
+}
+```
 
