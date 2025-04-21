@@ -85,23 +85,60 @@ dependencies:
 #### `TOKEN_FACEPASS deve ser solicitado para a equipe Facepass` (NÃO DEVE SER COMPARTILHADO)
 
 ## Como usar
+### Inicialização do SDK
 ```dart
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); // O WidgetsFlutterBinding deve ser iniciado antes do início do SDK
   FacepassFlutterSdk.I.init(
-    apiKey: <APK_KEY_FACEPASS>,
+    apiKey: <APK_KEY_MOBILE_FACEPASS>,
   );
   runApp(const MyApp());
 }
-#### `APK_KEY_FACEPASS deve ser solicitado para a equipe Facepass` (NÃO DEVE SER COMPARTILHADO)
-
 ```
-### Parametros do FacepassFlutterSdk.I.init
+#### `APK_KEY_MOBILE_FACEPASS deve ser solicitado para a equipe Facepass` (NÃO DEVE SER COMPARTILHADO)
+
+### Validação liveness
+```dart
+  try {
+    final UserValidationResponse? result =
+        await FacepassFlutterSdk.I.liveness(context);
+    //Caso o result retorne null é por que o usuário somente abriu e fechou a tela
+    // Codifique os próximos passos a partir daqui
+  
+  } catch (e) {
+    //Tratamento de failures
+    /**
+     * FAILURES MAPEADAS
+     * MobileFailure
+     * ServerFailure
+     * NoNetworkFailure
+     * FaceNotFoundFailure
+     * UserNotFoundFailure
+     * LivenessNotValidFailure
+     * DeepfakeNotValidFailure
+     * InvalidMetadataValidFailure
+     * InvalidApiKeyValidFailure
+     * DeviceNotApprocedFailure
+     */
+    // CONTUDO PODE SER QUALQUER OUTRO TIPO DE EXCEPTION NÃO MAPEADA. NÃO TRATE SOMENTE OS ERROS MAPEADOS
+  }
+```
+
+### Parametros do metodo FacepassFlutterSdk.I.init
 | Nome do Parâmetro | Tipo          | Obrigatório | Descrição                         | Valores Possíveis                     |
 |-------------------|---------------|-------------|-----------------------------------|---------------------------------------|
-| `texts`           | `String`      | Não         | Texto para traduções              | -                                     |
+| `texts`           | `FacepassFlutteSdkTexts`| Não         | Texto para traduções              | -                                     |
 | `debug`           | `bool`        | Não         | Habilita logs aprimorados         | true/false `default false`            |
 | `apiKey`          | `String`      | Sim         | Chave de acesso (Pedir ao facepass)| -                                    |
 | `sandbox`         | `bool`        | Não         | Ambiente de uso                   | true/false `default false`            |
 
+### Parametros do metodo FacepassFlutterSdk.I.liveness
+| Nome do Parâmetro | Tipo          | Obrigatório | Descrição                         | Valores Possíveis                     |
+|-------------------|---------------|-------------|-----------------------------------|---------------------------------------|
+| `context`         | `BuildContext`| Sim         | Contexto da aplicação             | -                                     |
+| `validnessAccuracy`| `FpFvCameraValidnessAccuracy`| Não         | Nível de critério para a validação  | low/medium/high/veryhigh `default medium`|
+| `cameraType`      | `FpCameraType`| Não         | Camera de início                  | front/back `default front`            |
+| `showFlashOption` | `bool`        | Não         | Habilita opção para que o usuário possa habilitar o flash. `"Só irá aparecer a opção quando for a câmera traseira"` | true/false `default true`|
+| `showFlipCameraOption`| `bool`    | Não         | Habilita opção para que o usuário possa trocar entre a câmera traseira ou dianteira | true/false `default false`|
+| `minFaceApproachPercent`| `double`| Não         | Distância mínima que o usuário deve estar do device  | Min: 10 Max: 80 `default 20`            |
 
