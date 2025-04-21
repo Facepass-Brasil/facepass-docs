@@ -9,12 +9,11 @@
 - Flutter >= 3.22.0
 - Dart >= 3.4.0 <4.0.0
 - iOS >= 15.5
-- Android `compileSDK` 34
 - Java 17
 - Android Gradle Plugin >=8.1.0
 - Gradle wrapper >= 8.3-all
-- ndkVersion >= 25.1.8937393
-- Android compileSdk >= 35
+- Android ndkVersion = 25.1.8937393
+- Android `compileSDK` >= 35
 - Android minSdk >= 24
 
 ## Configurar o java 17 no flutter
@@ -83,5 +82,26 @@ dependencies:
       ref: <LAST_TAG>
       path: ./facepass_flutter_sdk
 ```
-#### TOKEN_FACEPASS deve ser solicitado para a equipe Facepass (NÃO DEVE SER COMPARTILHADO)
+#### `TOKEN_FACEPASS deve ser solicitado para a equipe Facepass` (NÃO DEVE SER COMPARTILHADO)
+
+## Como usar
+```dart
+void main() {
+  WidgetsFlutterBinding.ensureInitialized(); // O WidgetsFlutterBinding deve ser iniciado antes do início do SDK
+  FacepassFlutterSdk.I.init(
+    apiKey: <APK_KEY_FACEPASS>,
+  );
+  runApp(const MyApp());
+}
+#### `APK_KEY_FACEPASS deve ser solicitado para a equipe Facepass` (NÃO DEVE SER COMPARTILHADO)
+
+```
+### Parametros do FacepassFlutterSdk.I.init
+| Nome do Parâmetro | Tipo          | Obrigatório | Descrição                         | Valores Possíveis                     |
+|-------------------|---------------|-------------|-----------------------------------|---------------------------------------|
+| `texts`           | `String`      | Não         | Texto para traduções              | -                                     |
+| `debug`           | `bool`        | Não         | Habilita logs aprimorados         | true/false `default false`            |
+| `apiKey`          | `String`      | Sim         | Chave de acesso (Pedir ao facepass)| -                                    |
+| `sandbox`         | `bool`        | Não         | Ambiente de uso                   | true/false `default false`            |
+
 
