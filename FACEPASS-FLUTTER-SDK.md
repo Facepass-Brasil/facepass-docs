@@ -73,3 +73,15 @@ dependencies {
 <string>Permissão para uso do GPS para validação facial</string>
 ```
 
+## Instalação
+
+```yaml
+dependencies:
+  facepass_flutter_sdk:
+    git: 
+      url: https://<TOKEN_FACEPASS>@github.com/Facepass-Brasil/fp-flutter-vision-suite.git
+      ref: <LAST_TAG>
+      path: ./facepass_flutter_sdk
+```
+#### TOKEN_FACEPASS deve ser solicitado para a equipe Facepass (NÃO DEVE SER COMPARTILHADO)
+
