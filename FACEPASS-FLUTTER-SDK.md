@@ -52,3 +52,24 @@ dependencies {
 }
 
 ```
+
+## Permissões Android
+### Adicione as permissões abaixo no aquivo android/app/src/main/AndroidManifest.xml
+```xml
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+```
+## Permissões iOS
+### Adicione as permissões abaixo no aquivo ios/Runner/Info.plist
+
+```xml
+<key>NSCameraUsageDescription</key>
+<string>Premissão de camera para validação facial</string>
+<key>NSMicrophoneUsageDescription</key>
+<string>Usado para camera na validação facial</string>
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>Permissão para uso do GPS para validação facial</string>
+```
+
