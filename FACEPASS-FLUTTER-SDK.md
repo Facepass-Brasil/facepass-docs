@@ -90,12 +90,14 @@ dependencies:
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); // O WidgetsFlutterBinding deve ser iniciado antes do início do SDK
   FacepassFlutterSdk.I.init(
-    apiKey: <APK_KEY_MOBILE_FACEPASS>,
+    apiKey: <API_KEY_MOBILE_FACEPASS>,
   );
   runApp(const MyApp());
 }
 ```
-#### `APK_KEY_MOBILE_FACEPASS deve ser solicitado para a equipe Facepass` (NÃO DEVE SER COMPARTILHADO)
+#### `API_KEY_MOBILE_FACEPASS deve ser solicitado para a equipe Facepass` (NÃO DEVE SER COMPARTILHADO)
+**Recomendamos fortemente use o parametro de build --dart-define-from-file para guardar chave de apiKey em de maneira segura**
+**Não suba dados críticos em repositórios git**
 
 ### Validação liveness
 ```dart
@@ -158,8 +160,9 @@ Do lado do backend do domínio do cliente, será necessário realizar uma requis
 curl --request GET \
   --url https://api.stable.guardian.k8s.facepassbrasil.com.br/v1/external/users/validate/8d9cd4a1-088a-40ce-bd01-ad0377c5bc74 \
   --header 'User-Agent: insomnia/9.3.0' \
-  --header 'x-api-key: <APK_KEY_BACKEND_FACEPASS>'
+  --header 'x-api-key: <API_KEY_BACKEND_FACEPASS>'
 ```
+#### `API_KEY_BACKEND_FACEPASS deve ser solicitado para a equipe Facepass` (NÃO DEVE SER COMPARTILHADO)
 
 ### Exemplo de response
 ```json
