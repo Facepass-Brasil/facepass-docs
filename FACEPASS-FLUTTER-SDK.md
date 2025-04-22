@@ -35,26 +35,6 @@ kotlinOptions {
 ...
 ```
 
-## Retro compatibilidade com o java 11
-### No arquivo android/app/build.graddle adicione:
-```groovy
-...
-compileOptions {
-    coreLibraryDesugaringEnabled true //Habilite o Desugaring adicionando esse parametro 
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
-
-kotlinOptions {
-    jvmTarget = JavaVersion.VERSION_1_8
-}
-...
-//Adicione também a depêndencia abaixo:
-dependencies {
-  coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
-}
-
-```
 
 ## Permissões Android
 ### Abra para o arquivo android/app/src/main/AndroidManifest.xml
