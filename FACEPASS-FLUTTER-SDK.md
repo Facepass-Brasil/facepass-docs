@@ -90,7 +90,7 @@ dependencies:
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); // O WidgetsFlutterBinding deve ser iniciado antes do início do SDK
   FacepassFlutterSdk.I.init(
-    apiKey: <API_KEY_MOBILE_FACEPASS>,
+    mobileApiKey: <API_KEY_MOBILE_FACEPASS>,
   );
   runApp(const MyApp());
 }
@@ -158,7 +158,7 @@ Do lado do backend do domínio do cliente, será necessário realizar uma requis
 ### Exemplo de request
 ```curl
 curl --request GET \
-  --url https://api.stable.guardian.k8s.facepassbrasil.com.br/v1/external/users/validate/8d9cd4a1-088a-40ce-bd01-ad0377c5bc74 \
+  --url <URL_BACKEND_FACEPASS>/v1/external/users/validate/8d9cd4a1-089a-40ce-bd01-ad0377c5bg74 \
   --header 'User-Agent: insomnia/9.3.0' \
   --header 'x-api-key: <API_KEY_BACKEND_FACEPASS>'
 ```
