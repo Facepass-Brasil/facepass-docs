@@ -43,7 +43,7 @@ kotlinOptions {
 ```xml
 <manifest ... xmlns:tools="http://schemas.android.com/tools">
 ```
-#### Adicione as permissões abaixo no aquivo android/app/src/main/AndroidManifest.xml
+#### Adicione as permissões abaixo:
 ```xml
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.INTERNET"/>
