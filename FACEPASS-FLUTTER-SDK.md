@@ -57,7 +57,13 @@ dependencies {
 ```
 
 ## Permissões Android
-### Adicione as permissões abaixo no aquivo android/app/src/main/AndroidManifest.xml
+### Abra para o arquivo android/app/src/main/AndroidManifest.xml
+
+#### Adicione essa regra na tag raiz manifest xmlns:tools="http://schemas.android.com/tools"
+```xml
+<manifest ... xmlns:tools="http://schemas.android.com/tools">
+```
+#### Adicione as permissões abaixo no aquivo android/app/src/main/AndroidManifest.xml
 ```xml
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.INTERNET"/>
