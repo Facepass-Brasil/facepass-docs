@@ -140,7 +140,7 @@ void main() {
 |-------------------|---------------|-------------|-----------------------------------|---------------------------------------|
 | `texts`           | `FacepassFlutteSdkTexts`| Não         | Texto para traduções              | -                                     |
 | `debug`           | `bool`        | Não         | Habilita logs aprimorados         | true/false `default false`            |
-| `apiKey`          | `String`      | Sim         | Chave de acesso (Pedir ao facepass)| -                                    |
+| `mobileApiKey`    | `String`      | Sim         | Chave de acesso (Pedir ao facepass)| -                                    |
 | `sandbox`         | `bool`        | Não         | Ambiente de uso                   | true/false `default false`            |
 
 ### Parametros do metodo FacepassFlutterSdk.I.liveness
