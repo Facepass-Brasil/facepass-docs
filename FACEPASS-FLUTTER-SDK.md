@@ -17,7 +17,7 @@
 - Android minSdk >= 24
 - Kotlin version >= 1.9.0
 #### Exemplo de como informar a versão do Kotlin  
-`id "org.jetbrains.kotlin.android" version "1.9.0" apply false`\n
+`id "org.jetbrains.kotlin.android" version "1.9.0" apply false`\
 Ou `'ext.kotlin_version = '1.9.0'`
 
 ## Configurar o java 17 no flutter
