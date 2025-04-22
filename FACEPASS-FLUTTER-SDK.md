@@ -69,6 +69,7 @@ dependencies {
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.WRITE_SETTINGS" tools:ignore="ProtectedPermissions"/>
 ```
 ## Permissões iOS
 ### Adicione as permissões abaixo no aquivo ios/Runner/Info.plist
