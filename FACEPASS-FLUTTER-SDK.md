@@ -39,7 +39,7 @@ kotlinOptions {
 ## Permissões Android
 ### Abra para o arquivo android/app/src/main/AndroidManifest.xml
 
-#### Adicione essa regra na tag raiz manifest xmlns:tools="http://schemas.android.com/tools"
+#### Adicione essa regra na tag raiz `<manifest` xmlns:tools="http://schemas.android.com/tools"
 ```xml
 <manifest ... xmlns:tools="http://schemas.android.com/tools">
 ```
