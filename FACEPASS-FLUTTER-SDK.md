@@ -16,7 +16,9 @@
 - Android `compileSDK` >= 35
 - Android minSdk >= 24
 - Kotlin version >= 1.9.0
-  `Ex: id "org.jetbrains.kotlin.android" version "1.9.0" apply false`
+#### Exemplo de como informar a versão do Kotlin  
+`id "org.jetbrains.kotlin.android" version "1.9.0" apply false`
+Ou `'ext.kotlin_version = '1.6.10'`
 
 ## Configurar o java 17 no flutter
 ### No arquivo android/app/build.graddle adicione:
