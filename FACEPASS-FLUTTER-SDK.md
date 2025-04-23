@@ -11,7 +11,7 @@
 - iOS >= 15.5
 - Java 17
 - Android Gradle Plugin >=8.1.0
-- Gradle wrapper >= 8.3-all
+- Android Gradle wrapper >= 8.3-all
 - Android ndkVersion = 25.1.8937393
 - Android `compileSDK` >= 35
 - Android minSdk >= 24
